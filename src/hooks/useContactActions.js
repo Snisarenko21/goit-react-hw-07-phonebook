@@ -11,7 +11,6 @@ export const useContactActions = (id, name) => {
       if (!innerError) {
         return Promise.resolve();
       } else {
-        console.log('error :>> ', innerError);
         return Promise.reject();
       }
     } catch (error) {
