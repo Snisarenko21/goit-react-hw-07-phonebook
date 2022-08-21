@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
-import { removeContact } from 'redux/contactSlice';
-import { useDispatch } from 'react-redux';
+// import { removeContact } from 'redux/contactSlice';
+// import { useDispatch } from 'react-redux';
 import { ContactItem, ContactButton, ContactNumber } from './Contact.styled';
+import { useContactActions } from 'hooks/useContactActions';
 
 export const Contact = ({ options: { id, name, number } }) => {
-  const dispatch = useDispatch();
-
+  const { handleDelete, isLoading } = useContactActions(id, name);
   return (
     <ContactItem>
+      <ContactNumber />
       <span>{name}:</span>
-      <ContactNumber>
-        <span>{number}</span>
-      </ContactNumber>
-      <ContactButton type="button" onClick={() => dispatch(removeContact(id))}>
+      <span>{number}</span>
+
+      <ContactButton type="button" disabled={isLoading} onClick={handleDelete}>
+        {' '}
         Delete
       </ContactButton>
     </ContactItem>
