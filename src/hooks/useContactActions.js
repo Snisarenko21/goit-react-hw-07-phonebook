@@ -1,7 +1,6 @@
-import { toast } from 'react-toastify';
 import { useDeleteContactMutation } from 'redux/contactSlice';
 
-export const useContactActions = (id, name) => {
+export const useContactActions = id => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   const handleDeletePromised = async () => {
@@ -19,25 +18,7 @@ export const useContactActions = (id, name) => {
   };
 
   const handleDelete = () => {
-    toast.promise(handleDeletePromised(), {
-      pending: {
-        render() {
-          return `Deleting contact ${name}...`;
-        },
-      },
-      success: {
-        render() {
-          return `Contact ${name} was deleted👌`;
-        },
-        autoClose: 2000,
-      },
-      error: {
-        render() {
-          return `Something went wrong 😢. Try again later`;
-        },
-        autoClose: 2000,
-      },
-    });
+    handleDeletePromised();
   };
   return { handleDelete, isLoading };
 };

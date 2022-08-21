@@ -10,14 +10,18 @@ export const Contact = ({ options: { id, name, number } }) => {
       <span>{name}:</span>
       <span>{number}</span>
 
-      <ContactButton type="button" disabled={isLoading} onClick={handleDelete}>
-        {' '}
-        Delete
-      </ContactButton>
+      {!isLoading && (
+        <ContactButton
+          type="button"
+          disabled={isLoading}
+          onClick={handleDelete}
+        >
+          Delete
+        </ContactButton>
+      )}
     </ContactItem>
   );
 };
-
 Contact.propTypes = {
   options: PropTypes.exact({
     id: PropTypes.string.isRequired,
