@@ -26,6 +26,6 @@ Contact.propTypes = {
   options: PropTypes.exact({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
   }),
 };
