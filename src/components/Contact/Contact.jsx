@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { ContactItem, ContactButton, ContactNumber } from './Contact.styled';
 import { useContactActions } from 'hooks/useContactActions';
 
-export const Contact = ({ options: { id, name, number } }) => {
+export const Contact = ({ options: { id, name, phone } }) => {
   const { handleDelete, isLoading } = useContactActions(id, name);
   return (
     <ContactItem>
       <ContactNumber />
       <span>{name}:</span>
-      <span>{number}</span>
+      <span>{phone}</span>
 
       {!isLoading && (
         <ContactButton
