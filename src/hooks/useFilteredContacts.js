@@ -8,13 +8,9 @@ export const useFilteredContacts = () => {
   const filter = useSelector(getFilter);
 
   const filteredContacts = useMemo(() => {
-    return (
-      contacts
-        ?.filter(contact => {
-          return contact.name.toLowerCase().includes(filter.toLowerCase());
-        })
-        .sort((a, b) => a.name.localeCompare(b.name)) ?? []
-    );
+    return contacts?.filter(contact => {
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
+    });
   }, [filter, contacts]);
 
   return { filteredContacts, contacts };

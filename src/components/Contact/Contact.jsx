@@ -1,31 +1,28 @@
 import PropTypes from 'prop-types';
 import { ContactItem, ContactButton, ContactNumber } from './Contact.styled';
-import { useContactActions } from 'hooks/useContactActions';
+import { useDeleteContactMutation } from 'redux/contactSlice';
+import { toast } from 'react-toastify';
 
-export const Contact = ({ options: { id, name, phone } }) => {
-  const { handleDelete, isLoading } = useContactActions(id, name);
+export const Contact = ({ id, name, phone }) => {
+  const [handleDelete] = useDeleteContactMutation();
   return (
     <ContactItem>
-      <ContactNumber />
-      <span>{name}:</span>
-      <span>{phone}</span>
-
-      {!isLoading && (
-        <ContactButton
-          type="button"
-          disabled={isLoading}
-          onClick={handleDelete}
-        >
-          Delete
-        </ContactButton>
-      )}
+      {name}:
+      <ContactNumber /> {phone}
+      <ContactButton
+        type="button"
+        onClick={() => {
+          handleDelete(id);
+          toast.success(`You delete contact ${name}`);
+        }}
+      >
+        Delete
+      </ContactButton>
     </ContactItem>
   );
 };
 Contact.propTypes = {
-  options: PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
-  }),
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };

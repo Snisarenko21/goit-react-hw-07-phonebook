@@ -7,13 +7,21 @@ export const ContactList = () => {
 
   return (
     <>
-      {contacts && (
-        <List>
-          {filteredContacts.map(contact => (
-            <Contact key={contact.id} options={contact} />
-          ))}
-        </List>
-      )}
+      {contacts &&
+        (contacts.length > 0 ? (
+          <List>
+            {filteredContacts.map(contact => (
+              <Contact
+                key={contact.id}
+                id={contact.id}
+                name={contact.name}
+                phone={contact.phone}
+              />
+            ))}
+          </List>
+        ) : (
+          <p>There no contacts</p>
+        ))}
     </>
   );
 };

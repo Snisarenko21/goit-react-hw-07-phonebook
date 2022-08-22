@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toast';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { SearchForm, Input, Button, Label } from './Form.styled';
 import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
@@ -66,7 +67,6 @@ export function Form() {
       <Button type="submit">
         <span>add contact</span>
       </Button>
-      <ToastContainer />
     </SearchForm>
   );
 }

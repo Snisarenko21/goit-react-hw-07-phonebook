@@ -1,4 +1,5 @@
-import { ToastContainer} from 'react-toast'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Container, Title } from './App.styled';
 import { Form } from './Form';
 import { ContactList } from './ContactList';
@@ -9,7 +10,7 @@ export function App() {
     <Container>
       <Title>Phonebook</Title>
       <Form />
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
       <Title>Contacts</Title>
       <Filter />
       <ContactList />

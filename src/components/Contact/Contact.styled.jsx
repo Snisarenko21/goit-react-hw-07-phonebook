@@ -5,9 +5,11 @@ export const ContactItem = styled.li`
   align-items: baseline;
   justify-content: space-between;
   font-size: 18px;
+  color: rgb(118, 148, 9);
+  padding: 5px;
 `;
 export const ContactNumber = styled.h2`
-  color: rgb(118, 148, 9);
+  padding-left: 10px;
 `;
 export const ContactButton = styled.button`
   display: flex;
