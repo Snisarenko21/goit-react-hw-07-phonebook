@@ -34,4 +34,10 @@ export const Button = styled.button`
   background-color: rgb(228, 228, 216);
   border: 3px solid darkslateblue;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(232, 235, 300);
+    outline: none;
+  }
 `;

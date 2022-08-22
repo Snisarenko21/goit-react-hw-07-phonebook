@@ -6,10 +6,10 @@ export const ContactItem = styled.li`
   justify-content: space-between;
   font-size: 18px;
   color: rgb(118, 148, 9);
-  padding: 5px;
+  // padding: 5px;
 `;
 export const ContactNumber = styled.h2`
-  padding-left: 10px;
+  padding-left: 5px;
 `;
 export const ContactButton = styled.button`
   display: flex;
@@ -22,4 +22,10 @@ export const ContactButton = styled.button`
   background-color: rgb(229, 230, 218);
   border: 2px solid rgb(94, 94, 155);
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(232, 235, 300);
+    outline: none;
+  }
 `;
