@@ -16,7 +16,7 @@ export const Contact = ({ id, name, phone }) => {
           toast.success(`You delete contact ${name}`);
         }}
       >
-        Delete
+        delete
       </ContactButton>
     </ContactItem>
   );
